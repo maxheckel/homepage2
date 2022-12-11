@@ -43,6 +43,9 @@ const form = useForm({})
                                     Home
                                 </NavLink>
                                 <NavLink :href="route('blog')" :active="route().current('blog')">
+                                    Projects
+                                </NavLink>
+                                <NavLink :href="route('blog')" :active="route().current('blog')">
                                     Blog
                                 </NavLink>
                             </div>
@@ -86,6 +89,9 @@ const form = useForm({})
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('home')" :active="route().current('home')">
                             Home
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('blog')" :active="route().current('blog')">
+                            Projects
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('blog')" :active="route().current('blog')">
                             Blog
