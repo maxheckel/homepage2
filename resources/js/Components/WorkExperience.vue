@@ -5,16 +5,22 @@
         </div>
         <div>
             <h4 class="font-bold text-lg">{{ title }}</h4>
-            {{description}}
+            <p>{{description}}</p>
+            <a v-if="url != null" :href="url" target="_blank"><SecondaryButton class="my-4">Check it out</SecondaryButton></a>
         </div>
+
     </div>
 </template>
 
 <script setup>
+import PrimaryButton from "./PrimaryButton.vue";
+import SecondaryButton from "./SecondaryButton.vue";
+
 const props = defineProps({
     imagePath: String,
     description: String,
-    title: String
+    title: String,
+    url: String
 })
 </script>
 
