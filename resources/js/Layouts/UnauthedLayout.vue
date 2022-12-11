@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import {Head, Link, useForm} from '@inertiajs/inertia-vue3';
 import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
 import Dropdown from '@/Components/Dropdown.vue';
@@ -9,13 +9,17 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import Hero from "@/Components/Hero.vue";
+import InputLabel from "../Components/InputLabel.vue";
+import TextInput from "../Components/TextInput.vue";
+import InputError from "../Components/InputError.vue";
+import PrimaryButton from "../Components/PrimaryButton.vue";
 
 defineProps({
     title: String,
 });
 
 const showingNavigationDropdown = ref(false);
-
+const form = useForm({})
 </script>
 
 <template>
@@ -104,6 +108,72 @@ const showingNavigationDropdown = ref(false);
             <main>
                 <slot />
             </main>
+            <footer class="bg-primary-900 text-white">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-3 gap-10">
+                        <div>
+                            <h3 class="block font-bold text-xl mb-4">Send Me a Mesasge</h3>
+                            <div class="mt-4">
+                                <InputLabel for="name" value="Name" class="text-white" />
+                                <TextInput
+                                    id="name"
+                                    v-model="form.name"
+                                    type="text"
+                                    class="mt-1 block w-full"
+                                    required
+                                    autocomplete="current-password"
+                                />
+                                <InputError class="mt-2" :message="form.errors.password" />
+                            </div>
+                            <div class="mt-4">
+                                <InputLabel for="email" value="Email" class="text-white" />
+                                <TextInput
+                                    id="email"
+                                    v-model="form.email"
+                                    type="email"
+                                    class="mt-1 block w-full"
+                                    required
+                                    autocomplete="current-password"
+                                />
+                                <InputError class="mt-2" :message="form.errors.password" />
+                            </div>
+                            <div class="mt-4">
+                                <InputLabel for="message" value="Message" class="text-white" />
+                                <TextInput
+                                    id="message"
+                                    v-model="form.message"
+                                    type="text"
+                                    class="mt-1 block w-full"
+                                    required
+                                    autocomplete="current-password"
+                                />
+                                <InputError class="mt-2" :message="form.errors.password" />
+                            </div>
+                            <PrimaryButton class="my-4">Submit</PrimaryButton>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="block font-bold text-xl mb-4">Contact</h3>
+                            <p class="mb-4">
+                            <b class="block">Phone</b> 9374690519
+                            </p>
+                            <p class="mb-10">
+                            <b class="block">Email</b> 9374690519
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="block font-bold text-xl mb-4">Download my Resume</h3>
+
+                            <span class="material-symbols-outlined text-8xl">
+                            download
+                            </span>
+                            <div class="text-center">
+                                Resume.pdf
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 </template>
