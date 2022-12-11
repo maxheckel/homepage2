@@ -24,6 +24,15 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('/blog', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('blog');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
