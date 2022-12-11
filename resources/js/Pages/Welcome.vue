@@ -1,6 +1,7 @@
 <script setup>
 import {Head, Link} from '@inertiajs/inertia-vue3';
 import UnauthedLayout from "../Layouts/UnauthedLayout.vue";
+import WorkExperience from "../Components/WorkExperience.vue";
 
 defineProps({
     canLogin: Boolean,
@@ -66,10 +67,25 @@ defineProps({
             </div>
         </div>
 
-        <div class="py-12 bg-green-700">
+        <div class="py-12 bg-gradient-to-t	from-primary-300 to-primary-100">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8">
-                    <h2 class="text-2xl font-bold">Projects / Work Experience</h2>
+                    <h2 class="text-2xl font-bold">Work Experience</h2>
+                    <WorkExperience
+                        description="Building tools to make a/b testing and flag guarding on google assistant awesome. Authored policies for developers on how they change code in google assistant to allow them to do so in the safest, most effective way possible. Built analytics and tracking tools to measure effectiveness of google's experiments in assistant. Helped facilitate change in a system that affects a planet-scale amount of users."
+                        image-path="/google.png" title="Google"/>
+                    <WorkExperience
+                        description="Built a custom ecommerce/marketplace allowing users to buy art and commission work from artists around the world. Implemented escrow services for the artists so funds can be stored prior to the artist complete their commissions, insuring they get paid. Implemented a complex build process, minimizing scripts and page load time."
+                        image-path="/patronart.png" title="PatronArt"/>
+                    <WorkExperience
+                        description="Oversaw the development of a new learning platform as the program engineering lead. Managed engineering teams concurrently with tens of engineers working across 3 teams. Planned, organized and executed on entirely new apps built from scratch with several integrations within and outside MHE's ecosystem. Primary technologies used by the teams were Go, Angular 7 & 10, CircleCI, Kubernetes, AWS and various other technologies."
+                        image-path="/meh.png" title="McGraw Hill Education"/>
+                    <WorkExperience
+                        description="Completely re-built and re-architected a custom built ecommerce platform. Built using Laravel, Symfony and Vue.js it servers tens of thousands of unique users a day. Set up an advanced infrastructure on AWS using ECS clusters and multiple EC2 instances. Built an extremely comprehensive backroom to allow for reporting, modification and monitoring of the multiple brands hosted on the platform."
+                        image-path="/lookhuman.png" title="Print Syndicate"/>
+                    <WorkExperience
+                        description="A company I co-founded out of college with 2 partners. Raised just under half a million dollars in funding. Built an entire secure platform for investors to be verified by the companies they are investing in for 506(c) offerings."
+                        image-path="/crowdentials.png" title="Crowdentials"/>
                 </div>
             </div>
         </div>
