@@ -117,7 +117,7 @@ const form = useForm({})
             <footer class="bg-primary-900 text-white">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-3 gap-10">
-                        <div>
+                        <form  @submit.prevent="alert('here')">
                             <h3 class="block font-bold text-xl mb-4">Send Me a Mesasge</h3>
                             <div class="mt-4">
                                 <InputLabel for="name" value="Name" class="text-white" />
@@ -125,9 +125,8 @@ const form = useForm({})
                                     id="name"
                                     v-model="form.name"
                                     type="text"
-                                    class="mt-1 block w-full"
+                                    class="mt-1 block w-full text-black"
                                     required
-                                    autocomplete="current-password"
                                 />
                                 <InputError class="mt-2" :message="form.errors.password" />
                             </div>
@@ -137,26 +136,24 @@ const form = useForm({})
                                     id="email"
                                     v-model="form.email"
                                     type="email"
-                                    class="mt-1 block w-full"
+                                    class="mt-1 block w-full text-black"
                                     required
-                                    autocomplete="current-password"
                                 />
                                 <InputError class="mt-2" :message="form.errors.password" />
                             </div>
                             <div class="mt-4">
                                 <InputLabel for="message" value="Message" class="text-white" />
-                                <TextInput
+                                <textarea
                                     id="message"
                                     v-model="form.message"
                                     type="text"
-                                    class="mt-1 block w-full"
+                                    class="mt-1 block w-full text-black rounded-md"
                                     required
-                                    autocomplete="current-password"
                                 />
-                                <InputError class="mt-2" :message="form.errors.password" />
+                                <InputError class="mt-2 text-black bg-white" :message="form.errors.password" />
                             </div>
                             <PrimaryButton class="my-4">Submit</PrimaryButton>
-                        </div>
+                        </form>
                         <div class="text-center">
                             <h3 class="block font-bold text-xl mb-4">Contact</h3>
                             <p class="mb-4">
@@ -166,7 +163,7 @@ const form = useForm({})
                             <b class="block">Email</b> 9374690519
                             </p>
                         </div>
-                        <div class="text-center">
+                        <a class="text-center" href="/Max_Heckel_Resume.pdf">
                             <h3 class="block font-bold text-xl mb-4">Download my Resume</h3>
 
                             <span class="material-symbols-outlined text-8xl">
@@ -175,7 +172,7 @@ const form = useForm({})
                             <div class="text-center">
                                 Resume.pdf
                             </div>
-                        </div>
+                        </a>
 
                     </div>
                 </div>
