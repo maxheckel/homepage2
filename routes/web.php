@@ -25,13 +25,12 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/blog', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Blog');
 })->name('blog');
+
+Route::get('/projects', function () {
+    return Inertia::render('Projects');
+})->name('projects');
 
 Route::middleware([
     'auth:sanctum',

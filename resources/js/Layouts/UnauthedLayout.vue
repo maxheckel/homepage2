@@ -42,7 +42,7 @@ const form = useForm({})
                                 <NavLink :href="route('home')" :active="route().current('home')">
                                     Home
                                 </NavLink>
-                                <NavLink :href="route('blog')" :active="route().current('blog')">
+                                <NavLink :href="route('projects')" :active="route().current('projects')">
                                     Projects
                                 </NavLink>
                                 <NavLink :href="route('blog')" :active="route().current('blog')">
@@ -116,7 +116,7 @@ const form = useForm({})
             </main>
             <footer class="bg-primary-900 text-white">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-3 gap-10">
+                    <div class="md:grid grid-cols-3 gap-10">
                         <form  @submit.prevent="alert('here')">
                             <h3 class="block font-bold text-xl mb-4">Send Me a Mesasge</h3>
                             <div class="mt-4">
@@ -154,19 +154,19 @@ const form = useForm({})
                             </div>
                             <PrimaryButton class="my-4">Submit</PrimaryButton>
                         </form>
-                        <div class="text-center">
+                        <div class="text-left">
                             <h3 class="block font-bold text-xl mb-4">Contact</h3>
                             <p class="mb-4">
-                            <b class="block">Phone</b> 9374690519
+                            <b class="block">Phone</b> See resume
                             </p>
                             <p class="mb-10">
-                            <b class="block">Email</b> 9374690519
+                            <b class="block">Email</b> heckel.max at gmail d0t com
                             </p>
                         </div>
-                        <a class="text-center" href="/Max_Heckel_Resume.pdf">
+                        <a class="text-center" target="_blank" href="/Max_Heckel_Resume.pdf">
                             <h3 class="block font-bold text-xl mb-4">Download my Resume</h3>
 
-                            <span class="material-symbols-outlined text-8xl">
+                            <span class="material-symbols-outlined text-8xl relative mx-auto block">
                             download
                             </span>
                             <div class="text-center">

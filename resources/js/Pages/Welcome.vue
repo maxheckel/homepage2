@@ -9,12 +9,13 @@ defineProps({
     laravelVersion: String,
     phpVersion: String,
 });
+
 </script>
 
 <template>
     <Head title="Welcome"/>
 
-    <UnauthedLayout title="Max Heckel - Columbus Ohio Web Engineer">
+    <UnauthedLayout>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8">
@@ -66,6 +67,7 @@ defineProps({
 
             </div>
         </div>
+        <div id="commento"></div>
 
         <div class="py-12 bg-gradient-to-t	from-primary-300 to-primary-100">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
