@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-[url('/bg.jpg')] bg-cover">
+    <div class="w-full bg-[url('/img/bg.jpg')] bg-cover">
 
         <div class="md:grid grid-cols-2 py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div></div>
@@ -12,7 +12,7 @@
 
 
                 </div>
-                <img class="shadow-lg border-2 border-white float-right inline-block rounded-full w-1/3 h-auto" src="/pfp.jpeg">
+                <img class="shadow-lg border-2 border-white float-right inline-block rounded-full w-1/3 h-auto" src="/img/pfp.jpeg">
 
             </div>
         </div>

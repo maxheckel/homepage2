@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,28 +19,20 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Welcome');
 })->name('home');
 
-Route::get('/blog', function () {
-    return Inertia::render('Blog');
-})->name('blog');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 
-Route::get('/projects', function () {
-    return Inertia::render('Projects');
-})->name('projects');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard/blog', [DashboardController::class, 'blog'])->name('dashboard.blog');
+    Route::get('/dashboard/projects',[DashboardController::class, 'projects'])->name('dashboard.projects');
+    Route::get('/dashboard/projects/new',[ProjectController::class, 'create'])->name('dashboard.projects.new');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
