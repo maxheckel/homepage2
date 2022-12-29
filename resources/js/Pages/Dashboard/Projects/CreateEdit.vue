@@ -11,12 +11,13 @@ const form = useForm({
     title: "",
     github: "",
     live: "",
-    content: ""
-
+    content: "",
+    thumbnail: null
 })
 
-function submit(){
-
+const submit = () => {
+    console.log('here')
+    form.post(route('dashboard.projects.store'))
 }
 </script>
 
@@ -69,13 +70,26 @@ function submit(){
                             <InputError class="mt-2" :message="form.errors.live" />
                         </div>
                         <div class="mb-8">
+                            <InputLabel for="thumbnail" value="Thumbnail" />
+                            <input type="file" @input="form.thumbnail = $event.target.files[0]" />
+                            <InputError class="mt-2" :message="form.errors.live" />
+                        </div>
+                        <div class="mb-8">
                             <InputLabel for="content" value="Content" />
                             <Editor v-model="form.content" api-key="API_KEY" :init="{plugins: 'wordcount lists link image '}" />
 
                             <InputError class="mt-2" :message="form.errors.live" />
                         </div>
-                    </form>
+                        <div class="flex items-center justify-end mt-4">
 
+                            <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                                Save
+                            </PrimaryButton>
+                            <PrimaryButton class="ml-4 bg-emerald-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                                Publish
+                            </PrimaryButton>
+                        </div>
+                    </form>
 
 
                 </div>

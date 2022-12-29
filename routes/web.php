@@ -34,5 +34,6 @@ Route::middleware([
     Route::get('/dashboard/blog', [DashboardController::class, 'blog'])->name('dashboard.blog');
     Route::get('/dashboard/projects',[DashboardController::class, 'projects'])->name('dashboard.projects');
     Route::get('/dashboard/projects/new',[ProjectController::class, 'create'])->name('dashboard.projects.new');
+    Route::post('/dashboard/projects/new',[ProjectController::class, 'store'])->name('dashboard.projects.store');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
