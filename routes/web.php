@@ -33,7 +33,11 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard/blog', [DashboardController::class, 'blog'])->name('dashboard.blog');
     Route::get('/dashboard/projects',[DashboardController::class, 'projects'])->name('dashboard.projects');
-    Route::get('/dashboard/projects/new',[ProjectController::class, 'create'])->name('dashboard.projects.new');
-    Route::post('/dashboard/projects/new',[ProjectController::class, 'store'])->name('dashboard.projects.store');
+    Route::get('/dashboard/projects/{project}',[ProjectController::class, 'edit'])->name('dashboard.projects.edit');
+    Route::post('/dashboard/projects/{project}',[ProjectController::class, 'update'])->name('dashboard.projects.update');
+    Route::delete('/dashboard/projects/{project}',[ProjectController::class, 'destroy'])->name('dashboard.projects.destroy');
+    Route::get('/dashboard/new-project',[ProjectController::class, 'create'])->name('dashboard.projects.new');
+    Route::post('/dashboard/new-project',[ProjectController::class, 'store'])->name('dashboard.projects.store');
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });

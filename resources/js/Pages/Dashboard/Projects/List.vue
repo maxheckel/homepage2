@@ -1,6 +1,11 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import Pagination from "../../../Components/Pagination.vue";
+import { Link} from '@inertiajs/inertia-vue3';
+const props = defineProps({
+    projects: Object
+})
 </script>
 
 <template>
@@ -16,7 +21,10 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8">
                     <PrimaryButton  class="inline-block" type="link"><a :href="route('dashboard.projects.new')">+ New Project</a></PrimaryButton>
 
-
+                    <div class="my-4" v-for="project in projects.data">
+                        <a :href="route('dashboard.projects.edit', project.id)">{{project.title}}</a>
+                    </div>
+                    <Pagination :links="projects.links"/>
                 </div>
             </div>
         </div>

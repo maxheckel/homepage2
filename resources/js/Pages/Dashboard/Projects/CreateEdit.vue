@@ -7,17 +7,31 @@ import {useForm} from "@inertiajs/inertia-vue3";
 import InputError from "@/Components/InputError.vue";
 import Editor from '@tinymce/tinymce-vue';
 
-const form = useForm({
-    title: "",
-    github: "",
-    live: "",
-    content: "",
-    thumbnail: null
+
+const props = defineProps({
+    project: Object
 })
 
+const form = useForm({
+    title: props.project?.title,
+    github: props.project?.github,
+    live: props.project?.live_url,
+    content: props.project?.content,
+    saveOnly: true,
+    thumbnail: null,
+    unpublish: false,
+
+})
+
+
 const submit = () => {
-    console.log('here')
-    form.post(route('dashboard.projects.store'))
+
+    if (props.project){
+        form.post(route('dashboard.projects.edit', props.project.id))
+    } else{
+        form.post(route('dashboard.projects.store'))
+    }
+
 }
 </script>
 
@@ -25,7 +39,7 @@ const submit = () => {
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                New Project
+                {{props.project ? 'Edit Project' : 'New Project'}}
             </h2>
         </template>
 
@@ -82,11 +96,19 @@ const submit = () => {
                         </div>
                         <div class="flex items-center justify-end mt-4">
 
-                            <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                            <PrimaryButton @click="form.saveOnly = true" class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                                 Save
                             </PrimaryButton>
-                            <PrimaryButton class="ml-4 bg-emerald-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+
+                            <PrimaryButton v-if="!props.project || props.project?.published_at == null" @click="form.saveOnly = false" class="ml-4 bg-emerald-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                                 Publish
+                            </PrimaryButton>
+
+                            <PrimaryButton v-if="props.project?.published_at != null" @click="form.unpublish = true" class="ml-4 bg-red-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                                Unpublish
+                            </PrimaryButton>
+                            <PrimaryButton v-if="props.project != null" @click="form.delete(route('dashboard.projects.destroy', project.id))" class="ml-4 bg-red-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                                Delete
                             </PrimaryButton>
                         </div>
                     </form>
