@@ -32,7 +32,7 @@ const props = defineProps({
             </div>
 
 
-            <div class="bg-gray-50 border-l-4 border border-gray-300 lg:w-1/2 p-4 italic">
+            <div class="bg-gray-50 border-l-4 border border-gray-300 p-4 italic">
                 <b>At A Glace:</b>
                 {{ project.short_content }}
             </div>
