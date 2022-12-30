@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,9 @@ Route::middleware([
     Route::delete('/dashboard/projects/{project}',[ProjectController::class, 'destroy'])->name('dashboard.projects.destroy');
     Route::get('/dashboard/new-project',[ProjectController::class, 'create'])->name('dashboard.projects.new');
     Route::post('/dashboard/new-project',[ProjectController::class, 'store'])->name('dashboard.projects.store');
+
+    Route::get('/dashboard/images', [ImageController::class, 'index'])->name('dashboard.images');
+    Route::post('/dashboard/images', [ImageController::class, 'store'])->name('dashboard.images.store');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
