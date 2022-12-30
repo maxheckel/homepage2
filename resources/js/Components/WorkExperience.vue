@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-[20%_80%] my-16">
+    <div class="md:grid grid-cols-[20%_80%] my-16">
         <div class="flex items-center justify-center">
             <img class="w-1/3 h-auto" :src="imagePath">
         </div>

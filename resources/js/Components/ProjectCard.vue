@@ -1,5 +1,5 @@
 <template>
-    <a :href="route('projects.show', project.id+'-'+project.slug)" class="w-full bg-white p-8 rounded-lg shadow-lg">
+    <a :href="route('projects.show', project.id+'-'+project.slug)" class="w-full bg-white block p-8 rounded-lg shadow-lg">
         <div class="flex justify-center">
             <img class="w-20 h-20 rounded-full border-2 border-gray-400" :src="'/uploads/'+project.thumb_image_url">
         </div>

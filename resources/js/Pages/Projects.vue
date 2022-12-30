@@ -14,7 +14,7 @@ const props = defineProps({
     <UnauthedLayout>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="grid grid-cols-3">
+                <div class="sm:grid sm:grid-cols-2 md:grid-cols-3">
                     <ProjectCard v-for="project in projects.data" :project="project"></ProjectCard>
                 </div>
             </div>
