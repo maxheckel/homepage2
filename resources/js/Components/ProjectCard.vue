@@ -4,7 +4,7 @@
             <img class="w-20 h-20 rounded-full border-2 border-gray-400" :src="'/uploads/'+project.thumb_image_url">
         </div>
         <div class="flex justify-center">
-            <h2 class="row flex-row text-xl">{{project.title}}</h2>
+            <h2 class="row flex-row text-xl font-bold mb-4">{{project.title}}</h2>
         </div>
         <span>{{project.short_content}}</span>
         <sub class="mt-8 text-right block">Published: {{project.published_at}}</sub>
