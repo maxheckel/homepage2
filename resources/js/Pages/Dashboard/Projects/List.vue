@@ -22,7 +22,19 @@ const props = defineProps({
                     <PrimaryButton  class="inline-block" type="link"><a :href="route('dashboard.projects.new')">+ New Project</a></PrimaryButton>
 
                     <div class="my-4" v-for="project in projects.data">
-                        <a :href="route('dashboard.projects.edit', project.id)">{{project.title}}</a>
+                        <div class="grid grid-cols-4">
+                            <div class="flex items-center">
+                                <a :href="route('dashboard.projects.edit', project.id)">{{project.title}}</a>
+                                <div class="inline-block ml-4 w-4 rounded-full h-4 bg-green-400" v-if="project.published_at != null"></div>
+                                <div class="inline-block ml-4 w-4 rounded-full h-4 bg-red-400" v-if="project.published_at == null"></div>
+                            </div>
+                            <div>Created: {{project.created_at}}</div>
+                            <div>Updated: {{project.updated_at}}</div>
+                            <div>
+                                Published: {{project.published_at}}
+                            </div>
+                        </div>
+
                     </div>
                     <Pagination :links="projects.links"/>
                 </div>

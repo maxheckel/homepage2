@@ -17,6 +17,7 @@ const form = useForm({
     github: props.project?.github,
     live: props.project?.live_url,
     content: props.project?.content,
+    shortContent: props.project?.short_content,
     saveOnly: true,
     thumbnail: null,
     unpublish: false,
@@ -84,15 +85,22 @@ const submit = () => {
                             <InputError class="mt-2" :message="form.errors.live" />
                         </div>
                         <div class="mb-8">
+                            <img class="w-20 h-auto" v-if="project?.thumb_image_url" :src="'/uploads/'+project?.thumb_image_url">
                             <InputLabel for="thumbnail" value="Thumbnail" />
                             <input type="file" @input="form.thumbnail = $event.target.files[0]" />
                             <InputError class="mt-2" :message="form.errors.live" />
                         </div>
                         <div class="mb-8">
+                            <InputLabel for="shortContent" value="Short Content" />
+                            <textarea v-model="form.shortContent" class="w-full rounded-md border-gray-300"></textarea>
+
+                            <InputError class="mt-2" :message="form.errors.shortContent" />
+                        </div>
+                        <div class="mb-8">
                             <InputLabel for="content" value="Content" />
                             <Editor v-model="form.content" api-key="API_KEY" :init="{plugins: 'wordcount lists link image '}" />
 
-                            <InputError class="mt-2" :message="form.errors.live" />
+                            <InputError class="mt-2" :message="form.errors.content" />
                         </div>
                         <div class="flex items-center justify-end mt-4">
 

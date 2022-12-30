@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Carbon\Carbon;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
@@ -21,8 +23,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
-        return Inertia::render('Projects');
+        $projects = Project::orderBy('published_at')->where('published_at', '!=', null)->paginate(20);
+        return Inertia::render('Projects', compact('projects'));
     }
 
 
@@ -58,9 +60,13 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($slug)
     {
-
+        $project = Project::where('id', explode('-', $slug)[0])->where('published_at', '!=', null)->first();
+        if ($project == null){
+            abort(404);
+        }
+        return Inertia::render('Project', compact('project'));
     }
 
     /**
@@ -116,6 +122,7 @@ class ProjectController extends Controller
         $project->github = $request->get('github');
         $project->live_url = $request->get('live');
         $project->content = $request->get('content');
+        $project->short_content = $request->get('shortContent');
         if (!$request->get('saveOnly')){
             $project->published_at = Carbon::now();
         }
@@ -128,6 +135,10 @@ class ProjectController extends Controller
         $thumbnail = $request->file('thumbnail');
         if ($thumbnail != null) {
             $thumbnail->storePublicly('', 'public_uploads');
+            // Delete the old file
+            if ($project->thumb_image_url != null){
+                unlink(public_path() . '/uploads/'.$project->thumb_image_url);
+            }
             $project->thumb_image_url = $thumbnail->hashName();
         }
         $project->save();

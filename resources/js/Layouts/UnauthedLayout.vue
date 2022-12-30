@@ -38,7 +38,7 @@ const form = useForm({})
                             <!-- Logo -->
 
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div class="hidden space-x-8 s  m:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('home')" :active="route().current('home')">
                                     Home
                                 </NavLink>
@@ -117,43 +117,7 @@ const form = useForm({})
             <footer class="bg-primary-900 text-white">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <div class="md:grid grid-cols-3 gap-10">
-                        <form  @submit.prevent="alert('here')">
-                            <h3 class="block font-bold text-xl mb-4">Send Me a Mesasge</h3>
-                            <div class="mt-4">
-                                <InputLabel for="name" value="Name" class="text-white" />
-                                <TextInput
-                                    id="name"
-                                    v-model="form.name"
-                                    type="text"
-                                    class="mt-1 block w-full text-black"
-                                    required
-                                />
-                                <InputError class="mt-2" :message="form.errors.password" />
-                            </div>
-                            <div class="mt-4">
-                                <InputLabel for="email" value="Email" class="text-white" />
-                                <TextInput
-                                    id="email"
-                                    v-model="form.email"
-                                    type="email"
-                                    class="mt-1 block w-full text-black"
-                                    required
-                                />
-                                <InputError class="mt-2" :message="form.errors.password" />
-                            </div>
-                            <div class="mt-4">
-                                <InputLabel for="message" value="Message" class="text-white" />
-                                <textarea
-                                    id="message"
-                                    v-model="form.message"
-                                    type="text"
-                                    class="mt-1 block w-full text-black rounded-md"
-                                    required
-                                />
-                                <InputError class="mt-2 text-black bg-white" :message="form.errors.password" />
-                            </div>
-                            <PrimaryButton class="my-4">Submit</PrimaryButton>
-                        </form>
+
                         <div class="text-left">
                             <h3 class="block font-bold text-xl mb-4">Contact</h3>
                             <p class="mb-4">
