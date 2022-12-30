@@ -50,16 +50,19 @@ const props = defineProps({
     .content{
         @apply text-lg leading-loose;
         h1{
-            @apply font-bold mb-4 text-3xl;
+            @apply font-bold my-4 text-3xl;
         }
         h2{
-            @apply font-bold mb-4 text-2xl;
+            @apply font-bold my-4 text-2xl;
         }
         h3{
-            @apply font-bold mb-4 text-xl;
+            @apply font-bold my-4 text-xl;
         }
         b{
             @apply font-bold;
+        }
+        a{
+            @apply text-green-600 underline;
         }
     }
 </style>
