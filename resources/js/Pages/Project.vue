@@ -61,5 +61,8 @@ const props = defineProps({
         b{
             @apply font-bold;
         }
+        a{
+            @apply text-green-600 underline;
+        }
     }
 </style>
