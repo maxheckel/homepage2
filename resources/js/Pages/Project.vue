@@ -50,13 +50,13 @@ const props = defineProps({
     .content{
         @apply text-lg leading-loose;
         h1{
-            @apply text-3xl;
+            @apply font-bold mb-4 text-3xl;
         }
         h2{
-            @apply text-2xl;
+            @apply font-bold mb-4 text-2xl;
         }
         h3{
-            @apply text-xl;
+            @apply font-bold mb-4 text-xl;
         }
         b{
             @apply font-bold;
