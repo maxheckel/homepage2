@@ -30,7 +30,9 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 
 Route::any('/halo/collectors/{id}/poll', function(){
-    echo `<ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/">
+
+    $resp = <<<END
+<ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/">
     <ReceiveMessageResult>
         <Message>
             <MessageId>e15b23be-b568-414a-8601-658faa4c9f08</MessageId>
@@ -44,7 +46,10 @@ Route::any('/halo/collectors/{id}/poll', function(){
     <ResponseMetadata>
         <RequestId>dfa2c546-b02b-49c8-a3d4-8d9f5d0f4085</RequestId>
     </ResponseMetadata>
-</ReceiveMessageResponse>`;
+</ReceiveMessageResponse>
+END;
+    echo $resp;
+
 });
 
 Route::middleware([
