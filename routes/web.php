@@ -30,7 +30,7 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 
 Route::any('/halo/collectors/{id}/poll', function(){
-    return `<ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/">
+    echo `<ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/">
     <ReceiveMessageResult>
         <Message>
             <MessageId>e15b23be-b568-414a-8601-658faa4c9f08</MessageId>
