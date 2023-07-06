@@ -29,8 +29,11 @@ Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projec
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 
-Route::any('/halo/collectors/{id}/poll', function(){
 
+
+Route::any('/halo/collectors/{id}/poll', function(\Illuminate\Http\Request $request){
+\Symfony\Component\VarDumper\VarDumper::dump($request);
+    dd($request->all());
     $resp = <<<END
 <ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/">
     <ReceiveMessageResult>
