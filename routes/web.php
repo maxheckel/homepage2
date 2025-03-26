@@ -27,7 +27,9 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
-
+Route::get('/c', function (){
+    return redirect('https://calendly.com/max-fdy', 301);
+});
 
 
 
