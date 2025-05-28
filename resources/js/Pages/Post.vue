@@ -37,17 +37,51 @@ const props = defineProps({
 
 .content{
     @apply text-lg leading-loose;
-    h1{
-        @apply text-3xl;
+    .md *{
+        white-space: pre-wrap; /* Since CSS 2.1 */
     }
+    ul{
+        @apply list-disc pl-4 -mb-4 -mt-2;
+    }
+
+    ol{
+        @apply list-decimal pl-4 -mb-4;
+    }
+
+    li p{
+        @apply -mt-6 ml-2;
+    }
+
     h2{
-        @apply text-2xl;
+        @apply text-2xl font-bold;
     }
+
     h3{
-        @apply text-xl;
+        @apply text-2xl font-bold;
     }
-    b{
-        @apply font-bold;
+
+    h4{
+        @apply text-xl font-bold;
+    }
+    p{
+        @apply mb-4;
+    }
+    img{
+        @apply my-4;
+        max-width: 100%;
+        height: auto;
+    }
+    blockquote{
+        @apply border-l-4 pl-4 italic text-gray-600 my-4;
+    }
+    pre{
+        @apply bg-gray-100 p-4 rounded-md overflow-x-auto;
+        code{
+            @apply text-sm;
+        }
+    }
+    code{
+        @apply bg-gray-200 p-1 rounded;
     }
 }
 </style>
