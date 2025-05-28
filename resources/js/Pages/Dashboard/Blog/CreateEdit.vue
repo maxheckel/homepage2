@@ -73,7 +73,7 @@ const submit = () => {
                         </div>
                         <div class="mb-8">
                             <InputLabel for="content" value="Content" />
-                            <Editor v-model="form.content" api-key="4zxuyn0ne4374bu93ma20fmljrlen9928wk2n9kdzewm7uj3" :init="{plugins: 'wordcount lists link image '}" />
+                            <Editor v-model="form.content" api-key="q095bzuadpuhixq47xkka03q3cjgznkxsyfj58vlm6w89683" :init="{plugins: 'wordcount lists link image '}" />
 
                             <InputError class="mt-2" :message="form.errors.content" />
                         </div>
