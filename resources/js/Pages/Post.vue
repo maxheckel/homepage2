@@ -76,9 +76,6 @@ const props = defineProps({
     }
     pre{
         @apply bg-gray-100 p-4 rounded-md overflow-x-auto;
-        code{
-            @apply text-sm;
-        }
     }
     code{
         @apply bg-gray-200 p-1 rounded;
