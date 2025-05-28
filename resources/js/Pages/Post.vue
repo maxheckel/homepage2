@@ -60,6 +60,12 @@ const props = defineProps({
     h4{
         @apply text-xl font-bold;
     }
+    h1,h2{
+        @apply mt-8 mb-4;
+    }
+    h3,h4{
+        @apply mt-4 mb-2;
+    }
     p{
         @apply mb-4;
     }
