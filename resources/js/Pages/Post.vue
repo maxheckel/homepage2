@@ -41,16 +41,13 @@ const props = defineProps({
         white-space: pre-wrap; /* Since CSS 2.1 */
     }
     ul{
-        @apply list-disc pl-4 -mb-4 -mt-2;
+        @apply list-disc pl-4 ;
     }
 
     ol{
-        @apply list-decimal pl-4 -mb-4;
+        @apply list-decimal pl-4;
     }
 
-    li p{
-        @apply -mt-6 ml-2;
-    }
 
     h2{
         @apply text-2xl font-bold;
